@@ -1,0 +1,19 @@
+function NeuralNetworkTest(W,W2,images,labels)
+
+sucess=0;
+for img=1:size(images,2)
+    %Create label
+    label = labels(i);
+    label_vector = zeros(10,1);%column vector
+    label_vector(label+1) = 1;
+    
+    %GetNetwork output
+    Y = NeuralNetworkOutput([1; images(:,i)],W,W2);
+    
+    %Compute error
+    [ ,index] = max(Y);
+    if
+    %Decide if it's sucess or not
+end    
+end
+

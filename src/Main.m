@@ -6,7 +6,7 @@ images = loadMNISTImages('train-images.idx3-ubyte');
 disp('Train labels and images loaded properly')
 disp('NeuralNetwork training...')
 
-[W,W2] = NeuralNetworkTrain(labels, images,0.01,15);
+[W,W2] = NeuralNetworkTrain(labels, images,0.1,15);
 disp('Train is over')
 
 disp('Loading test labels')
