@@ -1,4 +1,4 @@
-function [Z2] = NeuralNetworkOutput(X,W,W2)
+function [Output,Z] = NeuralNetworkOutput(X,W,W2)
     Z = computeLayer(X,W);
-    Z2 = computeLayer(Z,W2);
+    Output = computeLayer(Z,W2);
 end

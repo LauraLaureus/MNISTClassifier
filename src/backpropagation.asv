@@ -1,0 +1,9 @@
+function [W, W2] = backpropagation(E,Z,Z2,W,W2,alpha)
+    
+%A = Z
+   delta_out = Z2.*(1-Z2)
+    
+    W = W+alpha*Z'*delta_hidden;
+    W2 = W2+alpha*Z2'*delta_out;
+
+end
