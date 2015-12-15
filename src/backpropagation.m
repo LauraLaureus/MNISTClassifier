@@ -1,4 +1,4 @@
-function [W, W2] = backpropagation(E,Z,Z2,W,W2,alpha)
+function [W, W2] = backpropagation(E,X,Z,Z2,W,W2,alpha)
 
     delta_out = zeros(10,1);
         for k=1:10
@@ -11,7 +11,7 @@ function [W, W2] = backpropagation(E,Z,Z2,W,W2,alpha)
             delta_hidden(k) = Z(k)*(1-Z(k))*suma;
         end
         
-        W = W+alpha*Z'*delta_hidden;
-        W2 = W2+alpha*Z2'*delta_out;
+        W = W+alpha*X*delta_hidden';
+        W2 = W2+alpha*Z*delta_out';
 
 end

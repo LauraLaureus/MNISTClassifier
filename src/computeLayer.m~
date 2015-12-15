@@ -1,0 +1,7 @@
+function Z = computeLayer(X,W)
+
+Z=W*X;
+M = mean(Z);
+Z=sigmf(Z,[1 ]);
+
+end

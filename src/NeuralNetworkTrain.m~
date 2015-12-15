@@ -4,8 +4,7 @@ num_images = size(images,2);
 
 W = rand(200,785);
 W2 = rand(10,201);
-c1 = 196.25;
-c2 = 50.25;
+c1 =
 
 Plotable_MSE = zeros(1,ep*num_images);
 for e=1:ep
@@ -23,10 +22,9 @@ for e=1:ep
         error = label_vector-Z2;
         
         count = mean(error.^2);
-        Ploteable_MSE(e*num_images+i) = 0.1*count^2;
-        disp(Ploteable_MSE(e*num_images+i));
+        Ploteable_MSE(e*i) = 0.5*count^2;
         
-        [W ,W2] = backpropagation(error,X,Z,Z2,W,W2,alpha);      
+        [W ,W2] = backpropagation(error,Z,Z2,W,W2,alpha);      
     end
    
 
