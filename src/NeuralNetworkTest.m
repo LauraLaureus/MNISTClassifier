@@ -1,5 +1,7 @@
 function NeuralNetworkTest(W,W2,images,labels)
 
+c1 = 196.25;
+c2 = 50.25;
 sucess=0;
 for img=1:size(images,2)
     %Create label
@@ -7,7 +9,7 @@ for img=1:size(images,2)
     
     
     %GetNetwork output
-    Y = NeuralNetworkOutput([1; images(:,img)],W,W2);
+    Y = NeuralNetworkOutput([images(:,img)],W,W2,c1,c2);
     
     %Compute error
     [~ ,index] = max(Y);

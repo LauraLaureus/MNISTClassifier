@@ -23,7 +23,8 @@ for e=1:ep
         error = label_vector-Z2;
         
         count = mean(error.^2);
-        Ploteable_MSE(e*num_images+i) = 0.1*count^2;
+        %Ploteable_MSE(e*num_images+i) = count;
+        Ploteable_MSE(e*num_images+i) = immse(Z2,label_vector);
         disp(Ploteable_MSE(e*num_images+i));
         
         [W ,W2] = backpropagation(error,X,Z,Z2,W,W2,alpha);      
