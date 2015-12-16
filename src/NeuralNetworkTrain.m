@@ -4,10 +4,10 @@ num_images = size(images,2);
 
 W = rand(200,785);
 W2 = rand(10,201);
-c1 = 196.25;
-c2 = 50.25;
+c1 = 0;%196.25;
+c2 = 0;%50.25;
 
-Plotable_MSE = zeros(1,ep*num_images);
+Ploteable_MSE = zeros(1,ep);
 for e=1:ep
     count = 0;
     for i=1:num_images
@@ -22,14 +22,13 @@ for e=1:ep
         
         error = label_vector-Z2;
         
-        count = mean(error.^2);
-        %Ploteable_MSE(e*num_images+i) = count;
-        Ploteable_MSE(e*num_images+i) = immse(Z2,label_vector);
-        disp(Ploteable_MSE(e*num_images+i));
+        count =count + immse(label_vector,Z2);
+        
         
         [W ,W2] = backpropagation(error,X,Z,Z2,W,W2,alpha);      
     end
-   
+    
+    Ploteable_MSE(e) = count/60000
 
 end
     figure;
